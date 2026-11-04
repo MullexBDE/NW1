@@ -1,0 +1,26 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex*
+*.toc
+*.vrb
+*.xdv
+
+# Editor settings
+**/.vscode/
+**/.idea/
+
+# MacOS files
+
+**/.DS_Store

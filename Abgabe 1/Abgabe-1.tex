@@ -290,4 +290,12 @@ nc localhost 4711
             \end{center}
 
         \subsubsection{c}
+            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_0.java}{OwnClient\_v1\_0.java} zu finden.
+
+        \subsubsection{d}
+            Ab HTTP 1.1 wird der Header \"Host\" offiziell als verpflichtend gekennzeichnet, in v1.0 war dieser schon möglich, jedoch nicht verlangt. Viele Services erwarten diesen Header jedoch unabhängig vom Protokoll, da der Header dem Anbieter ermöglicht Anfragen durch Proxies 
+            und Loadbalancers zu routen ohne, dass das Ziel verloren geht. Außerdem ermöglicht dieser Header dem Webserver unterschiedliche Websites zu liefern ohne benötigt manuelle navigation.
+
+        \subsubsection{e}
+            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_1.java}{OwnClient\_v1\_1.java} zu finden.
 \end{document}

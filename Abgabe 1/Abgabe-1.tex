@@ -31,6 +31,10 @@
 % File embedding
 \usepackage{embedfile}
 
+% Links
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
 % Standardabstände für Listen anpassen
 \setlist{itemsep=2pt, topsep=3pt, parsep=2pt}
 
@@ -298,4 +302,43 @@ nc localhost 4711
 
         \subsubsection{e}
             Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_1.java}{OwnClient\_v1\_1.java} zu finden.
+
+    \subsection{3.4}
+        \subsubsection{a}
+            \begin{itemize}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-hm.png} HTTP2 wird unterstützt und per ALPN negotiatet \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-bild.png} HTTP2 wird nicht unterstützt und per ALPN wird HTTP1.1 ausgehandelt \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-linux.png} HTTP2 wird nicht unterstützt und ALPN handelt HTTP1.1 aus \end{center}
+            \end{itemize}
+        
+        \subsubsection{b}
+            \begin{itemize}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-10.png} HTTP1.0 \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-11.png} HTTP1.1 \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-20.png} HTTP2.0 \end{center}
+            \end{itemize}
+        
+            Die Anfragen werden mit jedem Protokoll leicht langsamer, da neue Header introduced und genutzt werden. Dadurch wird die benötigte Datenmenge größer und die Zeit wird entsprechend mehr.
+
+            \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-rtt.png} \end{center}
+
+            Im Durchschnitt beträgt die RTT 26,998ms, demnach ist der Ping ca 10 mal schneller als eine HTTP anfrage. Dies lässt sich begründen damit das ICMP eine geringere Packagemenge benutzt und somit weniger Aufwand auf bieden Seiten der Verbindung ist.
+
+        \subsubsection{c}
+            \begin{itemize}
+                \item Anzahl Objekte die nachgeladen wurde: 392 Elemente wurden geladen
+                \item Dauer bis es vollständig geladen wurde: 20,48s
+                \item Wie klein war die kleinste Datei: 0 Byte
+                \item Wie lange dauerte es die kleinste Datei zu laden: 435ms
+                \item Wie lange hat der TCP-Handshake gedauert: 33ms
+            \end{itemize}
+        
+        \subsection{d}
+            
+        
+\section{AI-Chats}
+    \begin{itemize}
+        \item \url{https://claude.ai/share/1978160c-67cf-44c7-aac8-82b429b94b13}
+        \item \url{https://claude.ai/share/4f568fbc-d6d6-4cfd-9992-4858c2a67744}
+    \end{itemize}
 \end{document}

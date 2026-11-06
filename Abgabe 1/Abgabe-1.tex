@@ -229,7 +229,9 @@ nc localhost 4711
         \end{center}
             
         \subsubsection{b}
-
+            \begin{center}
+                \includegraphics[width=\textwidth]{images/Blatt-2/Aufgabe_2-1-b.png}
+            \end{center}
         \subsubsection{c}
             Wenn man eine der Variablen verändern könnte würden wir die Übertragungsrate vom 1. Schritt (A->R1) erhöhen um die dortigen Zeiten drastisch zu erhöhen.
 
@@ -239,6 +241,9 @@ nc localhost 4711
             \end{center}
 
         \subsubsection{e}
+            \begin{center}
+                \includegraphics[width=\textwidth]{images/Blatt-2/Aufgabe_2-1-e.png}
+            \end{center}
 
     \subsection{Aufgabe 2.2}
         \subsubsection{a}
@@ -256,8 +261,8 @@ nc localhost 4711
             Nein. Ein zuverlässiges Schicht-2-Protokoll garantiert die korrekte Übertragung nur zwischen zwei direkt verbundenen Knoten, also pro Teilstrecke. Auf dem Weg zwischen den Endsystemen können Pakete trotzdem verloren gehen (z. B. durch überlaufende Router-Puffer), verfälscht werden (Fehler im Router nach der Link-Prüfung), dupliziert werden oder in falscher Reihenfolge ankommen. Diese Fehler werden auf Schicht 2 nicht erkannt. Zuverlässigkeit muss daher Ende-zu-Ende gewährleistet werden, also im Transportprotokoll (TCP) oder in der Anwendung. UDP bietet das nicht. Der gesparte Overhead würde die Zuverlässigkeit gefährden.
 
     \subsection{Aufgabe 2.3}
-        \subsubsection{FreeDiskSpaceServer}
-            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/FreeDiskSpaceServer.java}{FreeDiskSpaceServer.java} zu finden.
+        \subsubsection{HelloServer}
+            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/HelloServer.java}{HelloServer.java} zu finden.
 
         \subsubsection{FreeDiskSpaceClient}
             Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/FreeDiskSpaceClient.java}{FreeDiskSpaceClient.java} zu finden.
@@ -294,7 +299,7 @@ nc localhost 4711
             \end{center}
 
         \subsubsection{c}
-            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_0.java}{OwnClient\_v1\_0.java} zu finden.
+       Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_0.java}{OwnClient\_v1\_0.java} zu finden.
 
         \subsubsection{d}
             Ab HTTP 1.1 wird der Header \"Host\" offiziell als verpflichtend gekennzeichnet, in v1.0 war dieser schon möglich, jedoch nicht verlangt. Viele Services erwarten diesen Header jedoch unabhängig vom Protokoll, da der Header dem Anbieter ermöglicht Anfragen durch Proxies 
@@ -302,8 +307,13 @@ nc localhost 4711
 
         \subsubsection{e}
             Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_1.java}{OwnClient\_v1\_1.java} zu finden.
-
-    \subsection{3.4}
+     \subsection{3.4}
+      Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/HelloServer.java}{HelloServer.java} zu finden.
+      \begin{center}
+          \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4.png}
+      \end{center}
+     
+    \subsection{3.5}
         \subsubsection{a}
             \begin{itemize}
                 \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-hm.png} HTTP2 wird unterstützt und per ALPN negotiatet \end{center}
@@ -325,15 +335,19 @@ nc localhost 4711
             Im Durchschnitt beträgt die RTT 26,998ms, demnach ist der Ping ca 10 mal schneller als eine HTTP anfrage. Dies lässt sich begründen damit das ICMP eine geringere Packagemenge benutzt und somit weniger Aufwand auf bieden Seiten der Verbindung ist.
 
         \subsubsection{c}
-            \begin{itemize}
-                \item Anzahl Objekte die nachgeladen wurde: 392 Elemente wurden geladen
-                \item Dauer bis es vollständig geladen wurde: 20,48s
-                \item Wie klein war die kleinste Datei: 0 Byte
-                \item Wie lange dauerte es die kleinste Datei zu laden: 435ms
-                \item Wie lange hat der TCP-Handshake gedauert: 33ms
-            \end{itemize}
-        
-        \subsection{d}
+            \begin{center}
+                \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-c}
+            \end{center}
+            Wie im Bild zu erkennen ist, wurden 265 Objekte geladen, was insgesamt 13.38s gedauert hat.
+            Das kleinste Objekt ist 0 Bytes groß mit einer Zeit von 84 ms. Der TCP Verbindungsaufbau hat 0 ms gedauert.
+            
+        \subsubsection{d}
+        Die Daten werden von Wireshark mit Hilfe von ip.addr == 193.99.144.85 gefiltert. Die IP von der Webseite heise.de wurde davor herausgefunden.
+        Folgende Protokolle werden bei heise.de angezeigt: IPv4 auf der Netzwerkschicht, TCP auf der Transportschicht und TLSv1.3 auf der Anwendungsschicht
+        Für google.com werden hingegen IPv4 auf der Netzwerkschicht, UDP auf der Transportschicht und QUIC auf der Anwendungsschicht angezeigt.
+        Der wesentliche Unterschied besteht darin, dass heise.de TCP nutzt, welches einen zeitaufwendigen Handshake für den Verbindungsaufbau und die Verschlüsselung benötigt.
+        Google.com verwendet das QUIC-Protokoll über das verbindungslose UDP, welches die Verschlüsselung direkt integriert.
+
             
         
 \section{AI-Chats}

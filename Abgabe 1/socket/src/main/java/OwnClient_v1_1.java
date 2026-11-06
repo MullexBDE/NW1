@@ -2,9 +2,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.URI;
+import java.net.URL;
 import java.util.Scanner;
 
-public class OwnClient {
+public class OwnClient_v1_1 {
     private static Socket clientSocket;
     private static PrintWriter outputWriter;
     private static BufferedReader inputReader;
@@ -41,9 +43,11 @@ public class OwnClient {
         try {
             System.out.print("Bitte geben Sie den Pfad an: ");
             String path = consoleScanner.nextLine();
+            URL url = new URI(String.format("http://%s:%s/%s", hostIP, hostPort, path)).toURL();
+            String requestTarget = url.getFile().isEmpty() ? "/" : url.getFile();
 
-            outputWriter.printf("GET %s HTTP/1.0\r\n", path);
-            outputWriter.printf("Host: %s:%d\r\n", hostIP, hostPort);
+            outputWriter.printf("GET %s HTTP/1.0\r\n", requestTarget);
+            outputWriter.printf("Host: %s:%d\r\n", url.getHost(), url.getPort());
             outputWriter.print("\r\n");
             outputWriter.flush();
             String line;

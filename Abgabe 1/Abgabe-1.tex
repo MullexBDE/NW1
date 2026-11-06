@@ -31,6 +31,10 @@
 % File embedding
 \usepackage{embedfile}
 
+% Links
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
 % Standardabstände für Listen anpassen
 \setlist{itemsep=2pt, topsep=3pt, parsep=2pt}
 
@@ -295,18 +299,48 @@ nc localhost 4711
             \end{center}
 
         \subsubsection{c}
-    \subsection{3.4}
-    Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/HelloServer.java}{HelloServer.java} zu finden.
-    \begin{center}
-        \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4.png}
-    \end{center}
+       Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_0.java}{OwnClient\_v1\_0.java} zu finden.
+
+        \subsubsection{d}
+            Ab HTTP 1.1 wird der Header \"Host\" offiziell als verpflichtend gekennzeichnet, in v1.0 war dieser schon möglich, jedoch nicht verlangt. Viele Services erwarten diesen Header jedoch unabhängig vom Protokoll, da der Header dem Anbieter ermöglicht Anfragen durch Proxies 
+            und Loadbalancers zu routen ohne, dass das Ziel verloren geht. Außerdem ermöglicht dieser Header dem Webserver unterschiedliche Websites zu liefern ohne benötigt manuelle navigation.
+
+        \subsubsection{e}
+            Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/OwnClient_v1_1.java}{OwnClient\_v1\_1.java} zu finden.
+     \subsection{3.4}
+      Der Vollständige Code ist in \textattachfile[description={Doppelklick zum Download}]{socket/src/main/java/HelloServer.java}{HelloServer.java} zu finden.
+      \begin{center}
+          \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4.png}
+      \end{center}
+     
     \subsection{3.5}
+        \subsubsection{a}
+            \begin{itemize}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-hm.png} HTTP2 wird unterstützt und per ALPN negotiatet \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-bild.png} HTTP2 wird nicht unterstützt und per ALPN wird HTTP1.1 ausgehandelt \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-4-a-linux.png} HTTP2 wird nicht unterstützt und ALPN handelt HTTP1.1 aus \end{center}
+            \end{itemize}
+        
+        \subsubsection{b}
+            \begin{itemize}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-10.png} HTTP1.0 \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-11.png} HTTP1.1 \end{center}
+                \item \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-20.png} HTTP2.0 \end{center}
+            \end{itemize}
+        
+            Die Anfragen werden mit jedem Protokoll leicht langsamer, da neue Header introduced und genutzt werden. Dadurch wird die benötigte Datenmenge größer und die Zeit wird entsprechend mehr.
+
+            \begin{center} \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-b-rtt.png} \end{center}
+
+            Im Durchschnitt beträgt die RTT 26,998ms, demnach ist der Ping ca 10 mal schneller als eine HTTP anfrage. Dies lässt sich begründen damit das ICMP eine geringere Packagemenge benutzt und somit weniger Aufwand auf bieden Seiten der Verbindung ist.
+
         \subsubsection{c}
             \begin{center}
                 \includegraphics[width=\textwidth]{images/Blatt-3/task_3-5-c}
             \end{center}
             Wie im Bild zu erkennen ist, wurden 265 Objekte geladen, was insgesamt 13.38s gedauert hat.
             Das kleinste Objekt ist 0 Bytes groß mit einer Zeit von 84 ms. Der TCP Verbindungsaufbau hat 0 ms gedauert.
+            
         \subsubsection{d}
         Die Daten werden von Wireshark mit Hilfe von ip.addr == 193.99.144.85 gefiltert. Die IP von der Webseite heise.de wurde davor herausgefunden.
         Folgende Protokolle werden bei heise.de angezeigt: IPv4 auf der Netzwerkschicht, TCP auf der Transportschicht und TLSv1.3 auf der Anwendungsschicht
@@ -314,4 +348,11 @@ nc localhost 4711
         Der wesentliche Unterschied besteht darin, dass heise.de TCP nutzt, welches einen zeitaufwendigen Handshake für den Verbindungsaufbau und die Verschlüsselung benötigt.
         Google.com verwendet das QUIC-Protokoll über das verbindungslose UDP, welches die Verschlüsselung direkt integriert.
 
+            
+        
+\section{AI-Chats}
+    \begin{itemize}
+        \item \url{https://claude.ai/share/1978160c-67cf-44c7-aac8-82b429b94b13}
+        \item \url{https://claude.ai/share/4f568fbc-d6d6-4cfd-9992-4858c2a67744}
+    \end{itemize}
 \end{document}

@@ -15,7 +15,7 @@ public class HelloServer {
     private static BufferedReader inputReader;
     private static String name;
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         HelloServer server = new HelloServer();
         server.start(8080);
     }
